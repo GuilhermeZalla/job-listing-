@@ -82,6 +82,12 @@ a {
     margin-bottom: 1rem;
 }
 
+@media screen and (max-width: 800px) {
+    .job-listing__card {
+        display: block;
+    }
+}
+
 
 /**************/
 
@@ -241,6 +247,42 @@ a {
     background-color: var(--hight-light-assets);
     color: var(--ligther);
     transition-duration: var(--transition);
+}
+
+hr {
+    display: none;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .job-listing__filter {
+        margin-bottom: 4rem;
+    }
+    .job-listing__card {
+        margin-bottom: 3.5rem;
+    }
+    .card__left {
+        position: relative;
+    }
+    .card__header {
+        position: absolute;
+        top: -55%;
+    }
+    .card__header img {
+        width: 72px;
+    }
+    .card__body {
+        margin-top: 30px;
+    }
+    .card__item:nth-last-child(2) {
+        margin: .70rem 10px;
+    }
+    .card__item--filter {
+        margin: 15px .30rem;
+    }
+    hr {
+        display: block;
+    }
 }
 
 
