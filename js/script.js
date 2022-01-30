@@ -279,8 +279,13 @@ function removeRor() {
 function clearFilter() {
     let filter = elements.ul.querySelectorAll("li");
     for (let i = 0; i < elements.article.length; ++i) {
-        elements.article[i].style.display = 'flex';
+        if (window.matchMedia("(max-width: 800px)").matches) {
+            elements.article[i].style.display = 'block';
+        } else {
+            elements.article[i].style.display = 'flex';
+        }
     }
+
     for (let i = 0; i < elements.li.length; ++i) {
         filter[i].style.display = 'inline-block';
     }
