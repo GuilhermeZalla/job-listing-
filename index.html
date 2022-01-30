@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <header class="job-listing__header">
+    </header>
+    <main class="job-listing__container">
+        <div class="job-listing__filter">
+            <ul id="filter-list">
+                <li data-role="frontend">
+                    Frontend
+                    <a href="#" class="close" onclick="removeFrontend()" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-role="backend">
+                    Backend
+                    <a href="#" class="close" onclick="removeBackend()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-role="fullstack">
+                    Fullstack
+                    <a href="#" class="close" onclick="removeFullstack()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-level="junior">
+                    Junior
+                    <a href="#" class="close" onclick="removeJunior()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-level="midweight">
+                    Midweight
+                    <a href="#" class="close" onclick="removeMidweight()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-level="senior">
+                    Senior
+                    <a href="#" class="close" onclick="removeSenior()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-language="python">
+                    Python
+                    <a href="#" class="close" onclick="removePython()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-language="ruby">
+                    Ruby
+                    <a href="#" class="close" onclick="removeRuby()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-language="javascript">
+                    JavaScript
+                    <a href="#" class="close" onclick="removeJavascript()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-language="html">
+                    HTML
+                    <a href="#" class="close" onclick="removeHTML()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-language="css">
+                    CSS
+                    <a href="#" class="close" onclick="removeCSS()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-tool="react">
+                    React
+                    <a href="#" class="close" onclick="removeReact()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-tool="sass">
+                    Sass
+                    <a href="#" class="close" onclick="removeSass()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-tool="vue">
+                    Vue
+                    <a href="#" class="close" onclick="removeVue()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-tool="django">
+                    Django
+                    <a href="#" class="close" onclick="removeDjango()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li data-tool="ror">
+                    RoR (Ruby on Rails)
+                    <a href="#" class="close" onclick="removeRor()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#FFF" fill-rule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg></a>
+                </li>
+                <li class="clear">
+                    <a id="clear" onclick="clearFilter()">Clear</a>
+                </li>
+            </ul>
+        </div>
+        <article class="job-listing__card" data-role="frontend" data-level="senior" data-language="html" data-language="css" data-language="javascript">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/photosnap.svg" alt="Photosnap logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">Photosnap</li>
+                                <li class="card__sub-item is-new">NEW!</li>
+                                <li class="card__sub-item is-featured">FEATURED</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Senior Frontend Developer</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>1</span>d ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Part Time</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">USA Only</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Frontend</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Senior</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">HTML</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">CSS</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">JavaScript</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="job-listing__card" data-role="fullstack" data-level="midweight" data-language="python" data-tool="react">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/manage.svg" alt="Manage logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">Manage</li>
+                                <li class="card__sub-item is-new">NEW!</li>
+                                <li class="card__sub-item is-featured">FEATURED</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Fullstack Developer</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>1</span>d ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Part Time</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Remote</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Fullstack</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Midweight</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Python</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">React</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="job-listing__card" data-role="frontend" data-level="junior" data-tool="react" data-tool="sass" data-language="javascript">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/account.svg" alt="Account logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">Account</li>
+                                <li class="card__sub-item is-new">NEW!</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Junior Frontend Developer</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>2</span>d ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Part Time</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">USA Only</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Frontend</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Junior</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">React</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Sass</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">JavaScript</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="job-listing__card" data-role="frontend" data-level="junior" data-language="css" data-language="javascript">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/myhome.svg" alt="My Home logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">My Home</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Junior Frontend Developer</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>5</span>d ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Contract</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">USA Only</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Frontend</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Junior</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">CSS</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">JavaScript</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="job-listing__card" data-role="fullstack" data-level="midweight" data-language="javascript" data-tool="sass" data-language="ruby">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/loop-studios.svg" alt="Loop Studios logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">Loop Studios</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Software Engineer</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>1</span>w ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Full Time</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">USA Only</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Fullstack</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Midweight</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">JavaScript</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Sass</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Ruby</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="job-listing__card" data-role="frontend" data-level="junior" data-language="html" data-tool="sass" data-language="javascript">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/shortly.svg" alt="Shortly logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">Shortly</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Junior Developer</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>2</span>w ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Full Time</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Worldwide</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Frontend</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Junior</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">HTML</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Sass</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">JavaScript</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="job-listing__card" data-role="frontend" data-level="junior" data-tool="vue" data-language="javascript" data-tool="sass">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/insure.svg" alt="Insure logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">Insure</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Junior Frontend Developer</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>2</span>w ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Full Time</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">USA Only</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Frontend</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Junior</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Vue</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">JavaScript</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Sass</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="job-listing__card" data-role="frontend" data-level="junior" data-tool="react" data-tool="sass" data-language="javascript">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/the-air-filter-company.svg" alt="The Air Filter Company logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">The Air Filter Company</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Front-end Dev</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>1</span>mo ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Part Time</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Worldwide</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Frontend</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Junior</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">React</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Sass</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">JavaScript</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="job-listing__card" data-role="backend" data-level="junior" data-language="ruby" data-tool="ror">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/faceit.svg" alt="FaceIt logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">FaceIt</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Junior Backend Developer</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>2</span>w ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Full Time</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">UK Only</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Backend</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Junior</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Ruby</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">RoR</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="job-listing__card" data-role="fullstack" data-level="midweight" data-language="javascript" data-language="python" data-tool="django">
+            <div class="card__left">
+                <div class="card__header">
+                    <img src="images/eyecam-co.svg" alt="Eyecam Company logo">
+                </div>
+                <div class="card__body">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item">Eyecam Co.</li>
+                            </ul>
+                        </li>
+                        <li class="card__item">
+                            <a href="#">Full Stack Engineer</a>
+                        </li>
+                        <li class="card__item">
+                            <ul class="card__sub-list">
+                                <li class="card__sub-item"><span>3</span>w ago</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Full Time</li>
+                                <li class="card__sub-item">&#8226</li>
+                                <li class="card__sub-item">Worldwide</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right">
+                <ul class="card__list--filter">
+                    <li class="card__item--filter">
+                        <a href="#">Fullstack</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Midweight</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">JavaScript</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Django</a>
+                    </li>
+                    <li class="card__item--filter">
+                        <a href="#">Python</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/**************/
+
+
+/* 0. Variáveis
+/* 1. Gerais
+/* 2. Container
+/* 3. Header
+/* 4. Article
+
+/**************/
+
+
+/*0. Variáveis
+/**************/
+
+ :root {
+    --bg-main: hsl(180, 52%, 96%);
+    --ligther: hsl(0, 0%, 100%);
+    --hight-light-assets: hsl(180, 29%, 50%);
+    --hight-dark-assets: hsl(180, 14%, 20%);
+    --bg-filter: hsl(180, 31%, 95%);
+    --darker-link: hsl(0, 0%, 0%);
+    --grey--caption: hsl(0, 0%, 50%);
+    --font-family: Spartan, sans-serif;
+    --border-left: 5px solid var(--hight-light-assets);
+    --transition: .25s;
+}
+
+
+/**************/
+
+
+/* 1. Gerais
+
+/**************/
+
+body {
+    font-family: var(--font-family);
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-main);
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/**************/
+
+
+/* 2. Container
+
+/**************/
+
+.job-listing__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 5%;
+    width: inherit;
+    height: inherit;
+    margin-top: -2%;
+}
+
+.job-listing__card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+
+/**************/
+
+
+/*3. Header
+/**************/
+
+.job-listing__header {
+    background-color: var(--hight-light-assets);
+    background-image: url(/images/bg-header-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 160px;
+}
+
+
+/**************/
+
+
+/*4. Main & Article
+
+/**************/
+
+.job-listing__filter {
+    border: none;
+    outline: none;
+    box-shadow: 0px 6px 15px 0px hsl(180deg 53% 76% / 60%);
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 2.5rem;
+}
+
+.job-listing__filter li:not(.clear) {
+    display: inline-block;
+    font-size: .60rem;
+    font-weight: bold;
+    padding: 5px 0 5px 7px;
+    margin: 5px 5px;
+}
+
+.job-listing__filter li .close {
+    vertical-align: middle;
+    background-color: var(--hight-light-assets);
+    padding: 15px 6px 6px 6px;
+    margin-left: 2px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: .30rem;
+}
+
+.clear {
+    font-size: .90rem;
+    float: right;
+    margin: 10px;
+    color: var(--grey--caption);
+}
+
+.clear:hover a {
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--hight-light-assets);
+}
+
+.job-listing__filter li .close:hover {
+    background-color: var(--hight-dark-assets);
+    transition: var(--transition);
+}
+
+.job-listing__card,
+.job-listing__filter {
+    background-color: var(--ligther);
+    border-radius: 5px;
+}
+
+.job-listing__card {
+    box-shadow: 1px 3px 12px 3px hsl(180deg 53% 76% / 60%);
+    width: 100%;
+    padding: 20px 30px;
+}
+
+.job-listing__card:nth-last-child(10),
+.job-listing__card:nth-last-child(9) {
+    border-left: var(--border-left);
+}
+
+.card__header,
+.card__body,
+.card__sub-item,
+.card__item--filter {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.card__sub-item {
+    margin: 0 0 0 10px;
+}
+
+.card__item:nth-last-child(2) {
+    margin: .50rem 10px;
+}
+
+.card__item:nth-last-child(2)>a {
+    color: var(--darker-link);
+    font-weight: bold;
+}
+
+.card__item:nth-last-child(2)>a:hover {
+    color: var(--hight-light-assets);
+}
+
+.card__item:first-child .card__sub-item:first-child {
+    font-weight: bold;
+    font-size: .80rem;
+    color: var(--hight-light-assets);
+    vertical-align: super;
+}
+
+.is-new,
+.is-featured {
+    font-weight: bold;
+    font-size: .60rem;
+    color: var(--ligther);
+    background-color: var(--hight-light-assets);
+    padding: 7px 8px 5px 8px;
+    border-radius: 20px;
+    vertical-align: super;
+}
+
+.is-featured {
+    background-color: var(--hight-dark-assets);
+}
+
+.card__item:last-child .card__sub-item {
+    font-size: .70rem;
+    color: var(--grey--caption);
+}
+
+.card__item--filter {
+    font-size: .80rem;
+    margin: 0 .30rem;
+}
+
+.card__item--filter>a,
+.job-listing__filter li:not(.clear) {
+    background-color: var(--bg-filter);
+    color: var(--hight-light-assets);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.card__item--filter>a {
+    padding: 5px 8px;
+}
+
+.card__item--filter>a:hover {
+    background-color: var(--hight-light-assets);
+    color: var(--ligther);
+    transition-duration: var(--transition);
+}
+
+
+/**************/
